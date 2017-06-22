@@ -2,7 +2,80 @@
   text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+input {
+  align: right;
+  height: 15px;
+  width: 25px;
+  margin-bottom: 5px;
+  text-align: center;
 }
+
+.Button__Play {
+  width: 60px;
+  height: 60px;
+}
+
+.Menu {
+  text-align: right;
+  vertical-align: middle;
+}
+
+  .Menu__Text {
+    margin-top: 5px;
+  }
+  .Menu__Difficulty{
+    font-size: 10px;
+    text-align: center;
+  }
+
+.Tile {
+  border-radius: 5px;
+  margin-left: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 30px;
+  height: 28px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;}
+  .Tile:hover {
+    background-color: #4CAF50;
+    color: white;}
+  .Tile__cover {
+    text-indent: -9999px;
+    background-color: #ccc;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #fff #999 #999 #fff;
+    height: 100%; }
+  .Tile__cover--opened {
+    background-color: #ddd;
+    border: 1px solid #ddd; }
+  .Tile__number0 {
+    color: #ddd; }
+  .Tile__number1 {
+    color: blue; }
+  .Tile__number2 {
+    color: green; }
+  .Tile__number3 {
+    color: red; }
+  .Tile__number4 {
+    color: #2b4b65; }
+  .Tile__number5 {
+    color: #4f2702; }
+  .Tile__number6 {
+    color: #0b615e; }
+  .Tile__number7 {
+    color: black; }
+  .Tile__number8 {
+    color: #666; }
+  .Tile__flag {
+    background: url("../src/minesweeper/images/icn_flag_01.png") no-repeat center center;
+    text-indent: -9999px;
+    overflow: hidden}
+  .Tile__mine {
+    background: url("../src/minesweeper/images/icn_bomb_01.png") no-repeat center center;
+    text-indent: -9999px;
+    overflow: hidden;
+    height: 100%; }
