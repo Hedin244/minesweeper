@@ -10,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <MineSweeper width={10} height={10} bombs={10}/>
+      <MineSweeper />
     )
   }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Tile} from './Tile.js'
 
-export class Row extends React.Component {
+export class Row extends Component {
   constructor (props) {
     super(props);
     this.state = {

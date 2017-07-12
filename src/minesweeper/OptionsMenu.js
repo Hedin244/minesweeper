@@ -4,29 +4,29 @@ export class OptionsMenu extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      currentWidth    : 15,
-      currentHeigth   : 15,
-      currentBombs    : 5,
-      currentLevel    : "easy"
+      width    : 15,
+      height   : 15,
+      bombs    : 5,
+      level    : "easy"
     }
     this.handleInputChange_width = this.handleInputChange_width.bind(this);
-    this.handleInputChange_heigth = this.handleInputChange_heigth.bind(this);
+    this.handleInputChange_height = this.handleInputChange_height.bind(this);
     this.handleInputChange_bombs = this.handleInputChange_bombs.bind(this);
   }
 
   handleInputChange_width (evt) {
     this.setState({
-      currentWidth: evt.target.value
+      width: evt.target.value
     });
   }
-  handleInputChange_heigth (evt) {
+  handleInputChange_height (evt) {
     this.setState({
-      currentHeigth: evt.target.value
+      height: evt.target.value
     });
   }
   handleInputChange_bombs (evt) {
     this.setState({
-      currentBombs: evt.target.value
+      bombs: evt.target.value
     });
   }
 
@@ -47,20 +47,20 @@ export class OptionsMenu extends React.Component {
           <th>
             <div> <input  type="text"
                           onChange={this.handleInputChange_width}
-                          value={this.state.currentWidth}/>
+                          value={this.state.width}/>
             </div>
             <div> <input  type="text"
-                          onChange={this.handleInputChange_heigth}
-                          value={this.state.currentHeigth}/>
+                          onChange={this.handleInputChange_height}
+                          value={this.state.height}/>
             </div>
             <div> <input  type="text"
                           onChange={this.handleInputChange_bombs}
-                          value={this.state.currentBombs}/>
+                          value={this.state.bombs}/>
             </div>
           </th>
           <th>
             <div className="Menu__Difficulty"> Dificulty:
-              <div className="Menu__Level__Easy">{this.state.currentLevel}</div>
+              <div className="Menu__Level__Easy">{this.state.level}</div>
             </div>
             <button className="Button__Play" onClick={this.handleClick_Play.bind(this)}> Play! </button>
           </th>
