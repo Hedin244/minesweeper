@@ -1,4 +1,5 @@
-// import React, {Component} from 'react'
+ import React from 'react'
+ import {Tile} from './Tile.js'
 
 const rand = (max) => (Math.floor(Math.random()*max));
 
@@ -56,7 +57,6 @@ const plantMines = (field, width, height, bombs, clickBomb) => {
 }
 
 export const createBoard = (width, height, bombs, click, clickBomb, clickFlag) => {
-  console.log(width, height, bombs, click, clickBomb, clickFlag);
   var field = [];
   for(var row = 0; row < height; row++){
     field.push([]);
@@ -76,29 +76,3 @@ export const createBoard = (width, height, bombs, click, clickBomb, clickFlag) =
   var minedField = plantMines(field, width, height, bombs, clickBomb);
   return minedField;
 }
-
-
-//      ------------------------- Old ones -------------------------
-  //
-  // componentWillReceiveProps (newProps) {
-  //   this.clear();
-  //   console.log(this.state.cos);
-  //   this.forceUpdate();
-  //   console.log('force');
-  //   console.log(this.state.cos);
-  //   this.update(newProps);
-  //   console.log(this.state.cos);
-  // }
-  //
-  // clear () {
-  //   console.log('clear')
-  //   var clear = 0;
-  //   this.setState({ board : [1, 2],
-  //                   cos   : 1});
-  // }
-  // update (newProps) {
-  //   console.log('update')
-  //   var _board = this.createBoard(newProps);
-  //   this.setState({ board : _board,
-  //                   cos   : 0});
-  // }
