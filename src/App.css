@@ -31,19 +31,18 @@ input {
 .Tile {
   border-radius: 5px;
   margin-left: 2px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   width: 30px;
-  height: 28px;
+  min-height: 30px;
   text-align: center;
   vertical-align: middle;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;}
   .Tile:hover {
-    background-color: #4CAF50;
+    background-color: #999999;
     color: white;}
   .Tile__cover {
-    text-indent: -9999px;
     background-color: #ccc;
     border-width: 4px;
     border-style: solid;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export class Tile extends React.Component {
+export class Tile extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -38,37 +38,28 @@ export class Tile extends React.Component {
       switch (this.props.tile.counter) {
         case 0:
           return "Tile Tile__cover--opened Tile__number0";
-          break;
         case 1:
           return "Tile Tile__cover--opened Tile__number1";
-          break;
         case 2:
           return "Tile Tile__cover--opened Tile__number2";
-          break;
         case 3:
           return "Tile Tile__cover--opened Tile__number3";
-          break;
         case 4:
           return "Tile Tile__cover--opened Tile__number4";
-          break;
         case 5:
           return "Tile Tile__cover--opened Tile__number5";
-          break;
         case 6:
           return "Tile Tile__cover--opened Tile__number6";
-          break;
         case 7:
           return "Tile Tile__cover--opened Tile__number7";
-          break;
         case 8:
           return "Tile Tile__cover--opened Tile__number8";
-          break;
       }
     }
   }
 
   render () {
-    var value = this.state.value;
+    var value = this.props.tile.isClicked ? this.props.tile.counter : " " ;
     var name = this.tileClassName();
     return (
       <button className={name} onClick={this.handleClickNormal.bind(this)} onContextMenu={this.handleFlag.bind(this)}>

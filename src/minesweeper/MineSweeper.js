@@ -1,30 +1,47 @@
 import React, {Component} from 'react'
-import {Row} from './Row.js';
+import {Row} from './Row.js'
 import {createBoard} from './MSBoard.js'
 import {OptionsMenu} from './OptionsMenu.js'
 
-export class MineSweeper extends React.Component {
+export class MineSweeper extends Component {
   constructor (props) {
     super(props);
-    this.state = {                                                         //  Properties:
-      board  : createBoard( this.props.width,                     //  width
-                            this.props.height,                    //  height
-                            this.props.bombs,                     //  bombs
-                            this.handleClickNormal.bind(this),    //  click
-                            this.handleClickBomb.bind(this),      //  clickBomb
-                            this.handleFlag.bind(this)),          //  clickFlag
+    this.state = {                                              // Properties:
+      board : createBoard(  this.props.width,                   // width
+                            this.props.height,                  // height
+                            this.props.bombs,                   // bombs
+                            this.handleClickNormal.bind(this),  // click
+                            this.handleClickBomb.bind(this),    // clickBomb
+                            this.handleFlag.bind(this))         // clickFlag
     }
+    this.handleClickPlay = this.handleClickPlay.bind(this);
   }
-//      ------------------------- Handle interactions with menu -------------------------
 
+  //      ------------------------- Handle interactions with menu -------------------------
+  handleClickPlay (props) {
+    this.cleanBoard();
+    this.setState({                                             // Properties:
+      board : createBoard(  props.width,                        // width
+                            props.height,                       // height
+                            props.bombs,                        // bombs
+                            this.handleClickNormal.bind(this),  // click
+                            this.handleClickBomb.bind(this),    // clickBomb
+                            this.handleFlag.bind(this))         // clickFlag
+    });
+  }
 
-//      ------------------------- Handle interactions with board -------------------------
+  cleanBoard () {
+    this.setState({
+      board : [],
+    })
+  }
 
+  //      ------------------------- Handle interactions with board -------------------------
   handleClickNormal (tile) {
     var _board = this.state.board;
     if (_board[tile.y][tile.x].isClicked !== true){
       _board[tile.y][tile.x].isClicked = true;
-      this.setState({board : _board});
+      this.setState({ board : _board });
       if (tile.counter === 0) {
         this.clickAround(tile);
       }
@@ -43,6 +60,9 @@ export class MineSweeper extends React.Component {
 
   handleClickBomb () {
     alert('Game Over');
+    this.setState({
+      board : [],
+    })
   }
 
   handleFlag (tile) {
@@ -52,17 +72,18 @@ export class MineSweeper extends React.Component {
     this.setState({board : _board});
   }
 
+  //      ------------------------- Render function -------------------------
   render () {
     var MineSweeperBoard = this.state.board.map((row, index) => (<Row tiles={row} key={index}/>));
     return (
       <center>
-          <tbody>
-              <OptionsMenu />
-          </tbody>
+        <tbody>
+            <OptionsMenu handleClickPlay={this.handleClickPlay.bind(this)}/>
+        </tbody>
 
-          <tbody>
-              {MineSweeperBoard}
-          </tbody>
+        <tbody>
+            {MineSweeperBoard}
+        </tbody>
       </center>
     );
   }
